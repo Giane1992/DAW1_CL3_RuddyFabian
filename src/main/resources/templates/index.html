@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mi Primer CRUD JPA,Repository, Hibernate y MYSQL</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
+      type= "text/css"/>
+  
+</head>
+<body>
+   <div class="container my-2">
+     <h1>Lista de Productos</h1>
+     <a th:href = "@{/nuevoProducto}" class="btn btn-primary btn-sm mb-3">Nuevo Producto</a>
+     
+     <table border="1" class="table table-atriped table-resonsive-md">
+       <thead>
+       <tr>
+         <th>Nombre</th>
+         <th>Precio</th>
+         <th>Cantidad</th>
+         <th>Acciones</th>
+       </tr>
+       </thead>
+       <body>
+       <tr th:each="producto :${listaProductos}">
+          <td th:text="${producto.nombre}"></td>
+          <td th:text="${producto.precio}"></td>
+          <td th:text="${producto.cantidad}"></td>
+          <td>
+            <a th:href = "@{/actualizarProducto/{id}(id=${producto.id})}" class="btn btn-primary">Editar</a>
+            <a th:href = "@{/eliminarProducto/{id}(id=${producto.id})}" class="btn btn-danger">Eliminar</a>
+          </td>
+       </tr>
+       </body>
+     </table>
+     
+   </div>
+</body>
+</html>

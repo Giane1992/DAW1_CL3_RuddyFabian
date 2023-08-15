@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mi Primer CRUD JPA,Repository, Hibernate y MYSQL</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
+      type= "text/css"/>
+  
+</head>
+<body>
+   <div class="container my-2">
+     <h1>Actualización de Producto</h1>
+     <form th:action="@{/guardarProducto}" th:object="${producto}" method="post">
+       <input type="hidden" th:field="*{id}"/>
+       <input type="text" th:field="*{nombre}" placeholder="Ingrese nombre" class="form-control mb-4 col-4"/>
+       <input type="text" th:field="*{precio}" placeholder="Ingrese precio" class="form-control mb-4 col-4 "/>
+       <input type="text" th:field="*{cantidad}" placeholder="Ingrese cantidad" class="form-control mb-4 col-4 "/>
+       <button type="submit" class="btn btn-info col-2">Actualizar Producto</button>
+     </form>
+      <hr>
+      <a th:href="@{/}">Regresar</a>
+   </div>
+</body>
+</html>
